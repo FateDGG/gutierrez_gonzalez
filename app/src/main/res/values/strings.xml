@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">gutierrez_gonzalez</string>
     <string name="delete">Eliminar</string>
+    <string name="txt_Listado">Listado de Productos</string>
+    <string name="txtDetalle">Detalle Producto</string>
 </resources>

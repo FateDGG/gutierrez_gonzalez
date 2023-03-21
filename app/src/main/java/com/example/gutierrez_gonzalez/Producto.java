@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Producto extends AppCompatActivity {
+import java.io.Serializable;
+
+public class Producto extends AppCompatActivity implements Serializable {
     public Producto(String nombre, Double precio, String url) {
         this.Nombre = nombre;
         this.Precio = precio;
