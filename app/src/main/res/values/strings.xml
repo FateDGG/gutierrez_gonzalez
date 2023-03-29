@@ -3,4 +3,8 @@
     <string name="delete">Eliminar</string>
     <string name="txt_Listado">Listado de Productos</string>
     <string name="txtDetalle">Detalle Producto</string>
+    <string name="log">LOGIN</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="pw">Contraseña</string>
+    <string name="login">Iniciar Sesión</string>
 </resources>
