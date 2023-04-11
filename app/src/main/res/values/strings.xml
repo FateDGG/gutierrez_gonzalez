@@ -7,4 +7,7 @@
     <string name="email">Correo Electrónico</string>
     <string name="pw">Contraseña</string>
     <string name="login">Iniciar Sesión</string>
+    <string name="reg">Registrar</string>
+    <string name="price">Precio</string>
+    <string name="name">Nombre</string>
 </resources>
