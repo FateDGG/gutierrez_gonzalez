@@ -4,21 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class FormularioActivity extends AppCompatActivity {
 
 
-    TextView tvNombreReg, tvPrecioReg, tvImgReg;
+    EditText etNombreReg, etPrecioReg, etImgReg;
     Button btnRegistrar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario);
-        tvNombreReg = findViewById(R.id.tv_nombreReg);
-        tvPrecioReg = findViewById(R.id.tv_precioReg);
+        etNombreReg = findViewById(R.id.et_nombre);
+        etPrecioReg = findViewById(R.id.et_valor);
         btnRegistrar = findViewById(R.id.btn_Registrar);
-        tvImgReg = findViewById(R.id.tv_imgRegistro);
+        etImgReg = findViewById(R.id.et_imagen);
     }
 }

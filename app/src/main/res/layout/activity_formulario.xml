@@ -6,51 +6,58 @@
     android:layout_height="match_parent"
     tools:context=".FormularioActivity">
 
-    <TextView
-        android:id="@+id/tv_nombreReg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="177dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="177dp"
-        android:text="@string/name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_imgRegistro" />
-
-    <TextView
-        android:id="@+id/tv_precioReg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="174dp"
-        android:layout_marginTop="67dp"
-        android:layout_marginEnd="174dp"
-        android:text="@string/price"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nombreReg" />
-
     <Button
         android:id="@+id/btn_Registrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="159dp"
-        android:layout_marginTop="67dp"
+        android:layout_marginTop="85dp"
         android:layout_marginEnd="159dp"
         android:text="@string/reg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_precioReg" />
+        app:layout_constraintTop_toBottomOf="@+id/et_imagen" />
 
-    <TextView
-        android:id="@+id/tv_imgRegistro"
+    <EditText
+        android:id="@+id/et_nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="162dp"
-        android:layout_marginEnd="176dp"
-        android:text="@string/imagen"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="97dp"
+        android:layout_marginEnd="100dp"
+        android:ems="10"
+        android:hint="@string/producto"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_valor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginEnd="96dp"
+        android:ems="10"
+        android:hint="@string/precio"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_nombre" />
+
+    <EditText
+        android:id="@+id/et_imagen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="98dp"
+        android:ems="10"
+        android:hint="@string/img"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_valor" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
