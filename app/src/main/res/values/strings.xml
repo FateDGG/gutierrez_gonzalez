@@ -10,4 +10,5 @@
     <string name="reg">Registrar</string>
     <string name="price">Precio</string>
     <string name="name">Nombre</string>
+    <string name="imagen">Imagen</string>
 </resources>

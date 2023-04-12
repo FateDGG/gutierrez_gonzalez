@@ -6,29 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".FormularioActivity">
 
-    <ImageView
-        android:id="@+id/iv_registro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="151dp"
-        android:layout_marginTop="74dp"
-        android:layout_marginEnd="151dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background" />
-
     <TextView
         android:id="@+id/tv_nombreReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="177dp"
-        android:layout_marginTop="67dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="177dp"
         android:text="@string/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_registro" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_imgRegistro" />
 
     <TextView
         android:id="@+id/tv_precioReg"
@@ -53,4 +41,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_precioReg" />
+
+    <TextView
+        android:id="@+id/tv_imgRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="162dp"
+        android:layout_marginEnd="176dp"
+        android:text="@string/imagen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
