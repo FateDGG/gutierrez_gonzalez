@@ -1,5 +1,6 @@
 package com.example.gutierrez_gonzalez;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,15 +14,23 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<Producto> listaPrincipalProductos;
+    private ArrayList<Producto> listaPrincipalProductos = new ArrayList<>();
     private RecyclerView rvListadoProductos;
     private Button btnAgregar;
     private TextView tvInicio;
     private ImageButton btnLogout;
+
+    private AdaptadorPersonalizado miAdaptador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +42,9 @@ public class MainActivity extends AppCompatActivity {
         btnAgregar =findViewById(R.id.btn_agregar);
         btnLogout = findViewById(R.id.ib_cerrarSesion);
 
+
         rvListadoProductos = findViewById(R.id.rv_listado_productos);
-        AdaptadorPersonalizado miAdaptador = new AdaptadorPersonalizado(listaPrincipalProductos);
+        miAdaptador = new AdaptadorPersonalizado(listaPrincipalProductos);
 
         miAdaptador.setOnItemClickListener(new AdaptadorPersonalizado.OnItemClickListener() {
             @Override
@@ -48,25 +58,52 @@ public class MainActivity extends AppCompatActivity {
             public void onItemBtnEliminarClick(Producto miProducto, int position) {
                 listaPrincipalProductos.remove(position);
                 miAdaptador.setListadoInformacion(listaPrincipalProductos);
+                FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+                firestore.collection("productos").document(miProducto.getId()).delete();
+
             }
+
         });
 
         rvListadoProductos.setAdapter(miAdaptador);
         rvListadoProductos.setLayoutManager(new LinearLayoutManager(this));
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        listaPrincipalProductos.clear();
+        cargarDatos();
+    }
+
     public void clickAgregarProducto(View view){
         Intent addIntent = new Intent(this, FormularioActivity.class);
         startActivity(addIntent);
     }
 
+
+
     public void cargarDatos() {
-        Producto producto1 = new Producto("Computador HP", 8000000.0, "https://th.bing.com/th/id/OIP.98hN4ZRasR6n-rojQowvAgHaFj?pid=ImgDet&rs=1");
-        Producto producto2 = new Producto("Teclado", 150000.0, "https://th.bing.com/th/id/OIP.KVqVOGthP6w2TneHvxlo3QHaHa?pid=ImgDet&rs=1");
-        Producto producto3 = new Producto("Mouse", 120000.0, "https://th.bing.com/th/id/R.c204891c88787c3f25e60e61bb32a21d?rik=sBmNO0RlCmFfeA&pid=ImgRaw&r=0");
-        listaPrincipalProductos = new ArrayList<>();
-        listaPrincipalProductos.add(producto1);
-        listaPrincipalProductos.add(producto2);
-        listaPrincipalProductos.add(producto3);
+
+        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+        firestore.collection("productos").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    for(DocumentSnapshot document : task.getResult()) {
+                        Producto productoAtrapado = document.toObject(Producto.class);
+                        productoAtrapado.setId(document.getId());
+                        listaPrincipalProductos.add(productoAtrapado);
+                    }
+                    miAdaptador.setListadoInformacion(listaPrincipalProductos);
+                }else{
+                    Toast.makeText(MainActivity.this, "No se pudo conectar al servidor", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+
     }
 
     public void clickCerrarSesion(View view){

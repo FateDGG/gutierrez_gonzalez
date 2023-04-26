@@ -4,47 +4,52 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.google.firebase.firestore.Exclude;
+
 import java.io.Serializable;
 
-public class Producto extends AppCompatActivity implements Serializable {
-    public Producto(String nombre, Double precio, String url) {
-        this.Nombre = nombre;
-        this.Precio = precio;
-        this.Url = url;
+public class Producto implements Serializable {
+
+
+    public String nombre;
+    public Double precio;
+    public String url;
+
+    @Exclude
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String id;
+
+    public Producto() {
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        this.nombre = nombre;
     }
 
     public Double getPrecio() {
-        return Precio;
+        return precio;
     }
 
     public void setPrecio(Double precio) {
-        Precio = precio;
+        this.precio = precio;
     }
 
     public String getUrl() {
-        return Url;
+        return url;
     }
 
     public void setUrl(String url) {
-        Url = url;
+        this.url = url;
     }
-
-    public String Nombre;
-    public Double Precio;
-    public String Url;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.item_lista_productos);
-    }
-
-
 }
