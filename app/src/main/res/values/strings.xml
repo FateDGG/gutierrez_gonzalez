@@ -17,4 +17,6 @@
     <string name="producto">Nombre del producto</string>
     <string name="precio">Valor</string>
     <string name="img">Imagen</string>
+    <string name="editar">Editar\n</string>
+    <string name="title_activity_formulario_editar">FormularioEditar</string>
 </resources>

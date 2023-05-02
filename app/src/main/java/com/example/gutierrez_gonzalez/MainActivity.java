@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void cargarDatos() {
-
+        listaPrincipalProductos.clear();
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         firestore.collection("productos").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override

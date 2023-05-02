@@ -48,4 +48,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivImagenDetalle" />
+
+    <Button
+        android:id="@+id/btn_editar"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="160dp"
+        android:onClick="clickEditarProducto"
+        android:paddingTop="10dp"
+        android:paddingBottom="0dp"
+        android:text="@string/editar"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPrecioDetalle" />
 </androidx.constraintlayout.widget.ConstraintLayout>
